@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/golangci/golangci-lint v1.42.1
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
+	github.com/mercari/go-circuitbreaker v0.0.0-20201130021310-aff740600e91
 	go.uber.org/zap v1.17.0
 	google.golang.org/grpc v1.38.0
 	google.golang.org/grpc/examples v0.0.0-20210913185052-5bfc05fb0cf0
@@ -23,6 +24,7 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bkielbasa/cyclop v1.2.0 // indirect
 	github.com/bombsimon/wsl/v3 v3.3.0 // indirect
+	github.com/cenkalti/backoff/v3 v3.1.1 // indirect
 	github.com/cespare/xxhash/v2 v2.1.1 // indirect
 	github.com/charithe/durationcheck v0.0.8 // indirect
 	github.com/chavacava/garif v0.0.0-20210405164556-e8a0a408d6af // indirect
@@ -31,6 +33,7 @@ require (
 	github.com/denis-tingajkin/go-header v0.4.2 // indirect
 	github.com/esimonov/ifshort v1.0.2 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
+	github.com/facebookgo/clock v0.0.0-20150410010913-600d898af40a // indirect
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/fatih/structtag v1.2.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
