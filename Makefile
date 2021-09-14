@@ -9,10 +9,6 @@ bootstrap-tools:
 	@echo "Installing: " $(TOOLS)
 	@go install $(TOOLS)
 
-.PHONY: run
-run:
-	go run main.go $(ARGS)
-
 .PHONY: lint
 lint:
 	$(GOBIN)/golangci-lint run -v ./...

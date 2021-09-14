@@ -4,7 +4,10 @@ go 1.17
 
 require (
 	github.com/golangci/golangci-lint v1.42.1
-	github.com/quasilyte/go-consistent v0.0.0-20200404105227-766526bf1e96
+	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
+	go.uber.org/zap v1.17.0
+	google.golang.org/grpc v1.38.0
+	google.golang.org/grpc/examples v0.0.0-20210913185052-5bfc05fb0cf0
 )
 
 require (
@@ -37,9 +40,7 @@ require (
 	github.com/go-toolsmith/astcopy v1.0.0 // indirect
 	github.com/go-toolsmith/astequal v1.0.0 // indirect
 	github.com/go-toolsmith/astfmt v1.0.0 // indirect
-	github.com/go-toolsmith/astinfo v0.0.0-20180906194353-9809ff7efb21 // indirect
 	github.com/go-toolsmith/astp v1.0.0 // indirect
-	github.com/go-toolsmith/pkgload v1.0.0 // indirect
 	github.com/go-toolsmith/strparse v1.0.0 // indirect
 	github.com/go-toolsmith/typep v1.0.2 // indirect
 	github.com/go-xmlfmt/xmlfmt v0.0.0-20191208150333-d5b6f63a941b // indirect
@@ -132,11 +133,15 @@ require (
 	github.com/ultraware/whitespace v0.0.4 // indirect
 	github.com/uudashr/gocognit v1.0.5 // indirect
 	github.com/yeya24/promlinter v0.1.0 // indirect
+	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/mod v0.4.2 // indirect
+	golang.org/x/net v0.0.0-20210428140749-89ef3d95e781 // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	golang.org/x/text v0.3.6 // indirect
 	golang.org/x/tools v0.1.5 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
+	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c // indirect
 	google.golang.org/protobuf v1.26.0 // indirect
 	gopkg.in/ini.v1 v1.62.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
