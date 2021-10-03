@@ -4,9 +4,9 @@ go 1.17
 
 require (
 	github.com/golangci/golangci-lint v1.42.1
-	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
+	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/mercari/go-circuitbreaker v0.0.0-20201130021310-aff740600e91
-	go.uber.org/zap v1.17.0
+	go.uber.org/zap v1.19.1
 	google.golang.org/grpc v1.41.0
 	google.golang.org/grpc/examples v0.0.0-20210913185052-5bfc05fb0cf0
 )
