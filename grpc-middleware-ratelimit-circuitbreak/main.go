@@ -78,7 +78,24 @@ func main() {
 			grpc.WithUnaryInterceptor(
 				grpc_middleware.ChainUnaryClient(
 					grpc_zap.UnaryClientInterceptor(logger),
-					circuitBreakerInterceptor(),
+					circuitBreakerInterceptor(
+						circuitbreaker.New(&circuitbreaker.Options{
+							// Reset state during this interval.
+							Interval: time.Minute,
+
+							// If N times fails, state will be open.
+							ShouldTrip: circuitbreaker.NewTripFuncThreshold(1),
+
+							// If state is open.
+							// After this time, state will be changed to half-open.
+							// if keep failing, back to open.
+							OpenTimeout: 5 * time.Second,
+
+							// If state is half-open.
+							// if success this times, state will be back to close.
+							HalfOpenMaxSuccesses: 3,
+						}),
+					),
 				),
 			),
 		)
@@ -108,24 +125,7 @@ func main() {
 	zap.L().Info("Shutdown")
 }
 
-func circuitBreakerInterceptor() grpc.UnaryClientInterceptor {
-	cb := circuitbreaker.New(&circuitbreaker.Options{
-		// reset state during this interval
-		Interval: time.Minute,
-
-		// if N times fails, state will be open.
-		ShouldTrip: circuitbreaker.NewTripFuncThreshold(1),
-
-		// If state is open.
-		// After this time, state will be changed to half-open.
-		// if keep failing, back to open.
-		OpenTimeout: 5 * time.Second,
-
-		// If state is half-open.
-		// if success this times, state will be back to close.
-		HalfOpenMaxSuccesses: 3,
-	})
-
+func circuitBreakerInterceptor(cb *circuitbreaker.CircuitBreaker) grpc.UnaryClientInterceptor {
 	return func(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
 		_, err := cb.Do(ctx, func() (interface{}, error) {
 			zap.L().Info("cb", zap.Any("cb.state", cb.State()))
@@ -137,6 +137,6 @@ func circuitBreakerInterceptor() grpc.UnaryClientInterceptor {
 			return nil, nil
 		})
 
-		return err
+		return nil
 	}
 }
